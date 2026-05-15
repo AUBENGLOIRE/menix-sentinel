@@ -1,0 +1,13 @@
+#!/data/data/com.termux/files/usr/bin/env bash
+# Ce script doit être copié dans : ~/.termux/boot/menix
+# (créer le dossier au besoin). Termux:Boot l'exécute au démarrage du téléphone.
+#
+#   mkdir -p ~/.termux/boot
+#   cp ~/menix-sentinel/scripts/boot ~/.termux/boot/menix
+#   chmod +x ~/.termux/boot/menix
+#
+# Prérequis : installer l'app "Termux:Boot" depuis F-Droid et la lancer 1 fois.
+
+termux-wake-lock
+sleep 5  # laisse le système finir de booter
+bash "$HOME/menix-sentinel/scripts/start_menix.sh" >> "$HOME/menix-sentinel/logs/boot.log" 2>&1
